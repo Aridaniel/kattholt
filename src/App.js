@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
       Kitty-katt
+      fullt af kitty kaaatts
         
     </div>
   );
