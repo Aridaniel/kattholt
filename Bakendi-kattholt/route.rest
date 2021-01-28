@@ -1,0 +1,15 @@
+POST http://localhost:4000/kittyprofile
+Content-Type: application/json
+
+    {
+     "heitiKattar": "læða",
+     "kyn": "kvk",
+     "aldur":34,
+     "ormerking":234234213423,
+     "litur":"brunn",
+     "heitiEigandi":"sdBJorn skulaf",
+     "ktEigandi":"876797",
+     "heimilisfangEigandi":"barrhlot",
+     "simiEigandi":"5959544",
+     "athugamsemdir":"hann er flottur kisi"
+    }

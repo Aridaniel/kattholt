@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const tyndurKisiCopy = require('../models/tyndurKisi')
+const tyndurKisiCopy = require('../models/kottur')
 
 
 router.post('/kittyprofile', (request, response) =>{
@@ -8,9 +8,14 @@ router.post('/kittyprofile', (request, response) =>{
         heitiKattar:request.body.heitiKattar,
         kyn:request.body.kyn,
         aldur:request.body.aldur,
-        Örmerking:request.body.Örmerking,
-        Nr:request.body.Nr,
-        Litur:request.body.Litur
+        ormerking:request.body.ormerking,
+        nr:request.body.nr,
+        litur:request.body.litur,
+        heitiEigandi:request.body.heitiEigandi,
+        ktEigandi:request.body.ktEigandi,
+        heimilisfangEigandi:request.body.heimilisfangEigandi,
+        simiEigandi:request.body.simiEigandi,
+        athugasemdir:request.body.athugasemdir
     })
     nyrKisi.save()
     .then(data => {
