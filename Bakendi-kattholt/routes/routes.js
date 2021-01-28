@@ -3,7 +3,7 @@ const router = express.Router()
 const tyndurKisiCopy = require('..models/tyndurKisi')
 
 
-router.post('/kitty', (request, response) =>{
+router.post('/kittyprofile', (request, response) =>{
     const nyrKisi = new tyndurKisiCopy({
         heitiKattar:request.body.heitiKattar,
         kyn:request.body.kyn,

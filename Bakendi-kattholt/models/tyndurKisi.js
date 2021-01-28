@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const tyndurKisi = new mongoose.Schema({
-    heitiKattar:{
+    HeitiKattar:{
         type:String,
         required:true
     },
-    kyn:{
+    Kyn:{
         type:String,
         required:true
     },

@@ -2,5 +2,5 @@ POST http://localhost:4000/kettir/kitty
 Content-Type: application/json
 
 {
-    "heitiKattar":"Fíkja",
+    "HeitiKattar":"Fíkja",
 }
