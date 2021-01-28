@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(236, 236, 236);
+  color: #333;
+}
+
+/* removes all button styles */
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+/* Cats styling */
+.cat-container {
+  display: flex;
+  background: grey;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.cat-container img {
+  height: 100px;
+  width: 100px;
+}
+
+.cat-container .cat-info {
+  flex-direction: column;
+  justify-content: flex-start;
+}
