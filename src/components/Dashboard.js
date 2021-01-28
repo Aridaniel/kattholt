@@ -1,10 +1,14 @@
 import React from 'react';
 import Modal from './CatProfileModal';
+import Logo from "../img/logo_horizontal.svg";
+import {Link} from 'react-router-dom';
 
 function Dashboard() {
   return (
     <>
-      <h1>Loppan</h1>
+      <Link to= "/">
+        <img src={Logo}/>
+      </Link>
       <div className='header'>
         <button>Ný kisa</button>
         <button>search</button>
