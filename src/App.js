@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import css from './styles/style.css'
 // importing Dashboard
 import Dashboard from './components/Dashboard';
+// login
 import Login from './components/Login';
 
 export default function App() {
@@ -27,7 +29,6 @@ export default function App() {
 function Home() {
   return (
     <>
-      <h1>hallo</h1>
       <Login />
     </>
   );

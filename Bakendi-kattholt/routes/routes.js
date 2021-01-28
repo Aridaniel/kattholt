@@ -3,6 +3,9 @@ const router = express.Router()
 const tyndurKisiCopy = require('../models/kottur')
 
 
+
+
+
 router.post('/kittyprofile', (request, response) =>{
     const nyrKisi = new tyndurKisiCopy({
         heitiKattar:request.body.heitiKattar,
