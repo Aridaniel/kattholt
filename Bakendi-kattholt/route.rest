@@ -2,10 +2,10 @@ POST http://localhost:4000/kittyprofile
 Content-Type: application/json
 
     {
-     "heitiKattar": "læða",
-     "kyn": "kvk",
-     "aldur":34,
-     "ormerking":234234213423,
+     "heitiKattar": "Ási",
+     "kyn": "KK",
+     "aldur":4,
+     "ormerking":2342555213423,
      "litur":"brunn",
      "heitiEigandi":"sdBJorn skulaf",
      "ktEigandi":"876797",

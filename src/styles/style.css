@@ -16,7 +16,7 @@ button {
   outline: none;
   font: inherit;
   color: inherit;
-  background: none
+  background: none;
 }
 
 .header {
@@ -35,7 +35,8 @@ button {
 .cat-container {
   display: flex;
   background: grey;
-  max-width: 30rem;
+  max-width: 700px;
+  min-width: 400px;
   margin: 0 auto;
 }
 
