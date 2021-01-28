@@ -24,4 +24,5 @@ router.post('/kittyprofile', (request, response) =>{
 
 })
 
+router.get('/kettir')
 module.exports = router

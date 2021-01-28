@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-//const routesUrls = require('routes/routes')
-import routesUrls from "routes"
+const routesUrls = require('routes/routes')
+//import routesUrls from "routes"
 const cors = require('cors')
 
 dotenv.config()
