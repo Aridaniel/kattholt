@@ -15,7 +15,7 @@ const tyndurKisi = new mongoose.Schema({
     },
     Örmerking:{
         type:String,
-        required:False
+        required:false
     },
     Nr:{
         type:String,

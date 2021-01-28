@@ -1,4 +1,4 @@
-POST http://localhost:4000/kettir/kitty
+POST http://localhost:4000/app/kitty
 Content-Type: application/json
 
 {

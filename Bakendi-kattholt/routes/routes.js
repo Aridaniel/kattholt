@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const tyndurKisiCopy = require('..models/tyndurKisi')
+const tyndurKisiCopy = require('../models/tyndurKisi')
 
 
 router.post('/kittyprofile', (request, response) =>{
@@ -24,5 +24,5 @@ router.post('/kittyprofile', (request, response) =>{
 
 })
 
-router.get('/kettir')
+
 module.exports = router
