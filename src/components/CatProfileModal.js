@@ -1,5 +1,6 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import { GrFormClose } from 'react-icons/gr';
 
 // cat photo
 const url =
@@ -7,63 +8,90 @@ const url =
 
 function CatProfileModal() {
   const [content, setContent] = useState([]);
+  const [modalContent, setModalContent] = useState({});
+
+  const [deleteCat, setDeleteCat] = useState('')
 
   useEffect(() => {
-    const fetchData = async() => {
-      const response = await fetch("http://localhost:4000/api");
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:4000/api');
       const data = await response.json();
       setContent(data);
-    }
+    };
 
     fetchData();
-  },[]);
+  }, []);
 
-  var subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
+  function openModal(catInfo) {
     setIsOpen(true);
+    setModalContent(catInfo);
   }
-
 
   function closeModal() {
     setIsOpen(false);
   }
+
+  // // Delete cat function
+  // const deleteCatFunc = (id) => {
+  //     fetch('http://localhost:4000/api/${_id}', {
+  //       method: 'DETETE',
+  //     }).then(() => {
+  //       alert('Cat removed!');
+  //     })
+  // }
+
+const removeCatFunction = () => {
+
+}
+
   return (
     <>
-    {/* This is the button that opens the modal/ cat profile  */}
-    {content.map((i)=>{
-      return(
-        <button className='cat-container' onClick={openModal}>
-        <div>
-          <img src={url} alt='' />
-          <div className='cat-info'>
-            <div className='name'>
-              <h1>{i.heitiKattar}</h1>
-              <p>{i.aldur}</p>
+      {/* This is the button that opens the modal/ cat profile  */}
+      {content.map((i) => {
+        return (
+          <button className='cat-container' onClick={() => openModal(i)}>
+            <div>
+              <img src={url} alt='' />
+              <div className='cat-info'>
+                <div className='name'>
+                  <h1>{i.heitiKattar}</h1>
+                  <p>{i.aldur}</p>
+                </div>
+                <div className='ormerki'>{i.ormerking}</div>
+              </div>
             </div>
-            <div className='ormerki'>{i.ormerking}</div>
-          </div>
-        </div>
-      </button>
-      )
-    })}
+          </button>
+        );
+      })}
 
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
       >
-        <button onClick={closeModal}>close</button>
+        <button onClick={closeModal}>
+          <GrFormClose />
+        </button>
+
         <div key={content._id}>
-          <img src={url} alt='' />
+          <img style={{ height: '200px', width: '200px' }} src={url} alt='' />
           <div className='cat-info'>
             <div className='name'>
-              <h1>{content.heitiKattar}</h1>
-              <p>{content.aldur}</p>
+              <h1 contentEditable='true'>{modalContent.heitiKattar}</h1>
+              <p contentEditable='true'>{modalContent.kyn}</p>
+              <p contentEditable='true'>{modalContent.aldur}</p>
+              <p contentEditable='true'>{modalContent.ormerking}</p>
+              <p contentEditable='true'>{modalContent.litur}</p>
+              <p contentEditable='true'>{modalContent.heitiEigandi}</p>
+              <p contentEditable='true'>{modalContent.ktEigandi}</p>
+              <p contentEditable='true'>{modalContent.heimilisfangEigandi}</p>
+              <p contentEditable='true'>{modalContent.simiEigandi}</p>
+              <p contentEditable='true'>{modalContent.athugasemdir}</p>
             </div>
-            <div className='ormerki'>{content.ormerking}</div>
           </div>
         </div>
+        <button>Delete Cat</button>
       </Modal>
     </>
   );
