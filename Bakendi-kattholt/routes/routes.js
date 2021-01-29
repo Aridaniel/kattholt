@@ -2,22 +2,25 @@
 const express = require('express')
 const router = express.Router()
 const kisi = require('../models/kottur')
+const mongosse = require('mongoose')
+const ObjectId = require('mongoose').Types.ObjectId; 
 
-// let cats = []; 
 
 
-// /* This function deletes a user based on its id */
-// // const deleteKitty = (req, res) => {
-// //     const { id } = req.params;
 
-// //     cats = cats.filter((cat) => cat.id !== id);
 
-// //     res.send(`User with the id ${id} deleted from the database`); // nice message to confirm 
-// // };
 
-// router.delete('/:id', (req, res)=>{
-//     const deleteKisi = 
-// });
+router.delete('/:id', (req, res)=>{
+    const deletekisi = new kisi()
+    const { id } = req.params;
+    console.log(id)
+    deletekisi.find({_id:id}).remove(  function (err) {
+        if (err) 
+        console.log(err)
+      });
+
+    res.send(`User with the id ${id} deleted from the database`);
+});
 
 router.post('/kittyprofile', (request, response) =>{
     const nyrKisi = new kisi({

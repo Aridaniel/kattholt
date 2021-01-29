@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 
 const kottur = new mongoose.Schema({
+    _id:{
+        type:mongoose.Schema.ObjectId
+    },
     heitiKattar:{
         type:String,
         required:true
