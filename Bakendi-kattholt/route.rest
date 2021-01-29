@@ -2,14 +2,19 @@ POST http://localhost:4000/kittyprofile
 Content-Type: application/json
 
     {
-     "heitiKattar": "Ási",
+     "heitiKattar": "Smári",
      "kyn": "KK",
-     "aldur":4,
-     "ormerking":2342555213423,
-     "litur":"brunn",
-     "heitiEigandi":"sdBJorn skulaf",
-     "ktEigandi":"876797",
-     "heimilisfangEigandi":"barrhlot",
-     "simiEigandi":"5959544",
-     "athugamsemdir":"hann er flottur kisi"
+     "aldur":38,
+     "ormerking":222222222222,
+     "litur":"gulur",
+     "heitiEigandi":"Pedro",
+     "ktEigandi":"87679343434",
+     "heimilisfangEigandi":"Hafnafjörður",
+     "simiEigandi":"5812345",
+     "athugamsemdir":"mjáwesome"
     }
+
+###
+
+DELETE http://localhost:4000/api/_id
+Content-Type: application/json
