@@ -9,8 +9,7 @@ const url =
 function CatProfileModal() {
   const [content, setContent] = useState([]);
   const [modalContent, setModalContent] = useState({});
-
-  const [deleteCat, setDeleteCat] = useState('')
+  const [deleted, setDeleted] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,18 +31,25 @@ function CatProfileModal() {
     setIsOpen(false);
   }
 
-  // // Delete cat function
-  // const deleteCatFunc = (id) => {
-  //     fetch('http://localhost:4000/api/${_id}', {
-  //       method: 'DETETE',
-  //     }).then(() => {
-  //       alert('Cat removed!');
+
+  // Delete cat from DB
+
+  // const apiUrl = 'http://localhost:4000/api';
+
+  // // deleting cat from project
+  // const deleteCat = async (id) => {
+  //   await fetch(`${apiUrl}/${ormerking}`, {
+  //     method: 'DELETE',
+  //   });
+  //   // return list minus deleted object
+  //   setDeleted(
+  //     deleted.filter((cat) => {
+  //       return cat.ormerking !== ormerking;
   //     })
-  // }
+  //   );
+  // };
 
-const removeCatFunction = () => {
 
-}
 
   return (
     <>
