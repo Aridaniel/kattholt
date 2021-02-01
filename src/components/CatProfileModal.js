@@ -11,9 +11,8 @@ const url =
 function CatProfileModal() {
   const [content, setContent] = useState([]);
   const [modalContent, setModalContent] = useState({});
-  const [deleted, setDeleted] = useState([]);
-
   const [loading, setLoading] = useState(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +30,6 @@ function CatProfileModal() {
     fetchData();
   }, []);
 
-  const [modalIsOpen, setIsOpen] = useState(false);
   function openModal(catInfo) {
     setIsOpen(true);
     setModalContent(catInfo);
@@ -43,32 +41,45 @@ function CatProfileModal() {
 
   // Delete cat from DB
 
-  const apiUrl = 'http://localhost:4000/api';
+  const apiUrl = 'http://localhost:4000/kittyprofile/';
 
   // deleting cat from project
   const deleteCat = async (id) => {
-    await fetch(apiUrl, {
+    await fetch(apiUrl + id, {
       method: 'DELETE',
+    }).then(() => {
+      setIsOpen(false);
+      setContent(content.filter((c) => c['_id'] !== id));
+      console.log(content.filter((c) => c['_id'] !== id));
     });
   };
 
+  // loading screen before the API loads fully
+
   if (loading) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignContent: 'center',
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignContent: 'center',
+        }}
+      >
         <img src={Loading} alt='' />
       </div>
     );
   }
+
   return (
     <>
       {/* This is the button that opens the modal/ cat profile  */}
       {content.map((i) => {
         return (
-          <button className='cat-container' onClick={() => openModal(i)}>
+          <button
+            key={i._id}
+            className='cat-container'
+            onClick={() => openModal(i)}
+          >
             <div>
               <img src={url} alt='' />
               <div className='cat-info'>
@@ -85,6 +96,7 @@ function CatProfileModal() {
 
       <Modal
         isOpen={modalIsOpen}
+        ariaHideApp={false}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
       >
@@ -96,20 +108,23 @@ function CatProfileModal() {
           <img style={{ height: '200px', width: '200px' }} src={url} alt='' />
           <div className='cat-info'>
             <div className='name'>
-              <h1 contentEditable='true'>{modalContent.heitiKattar}</h1>
-              <p contentEditable='true'>{modalContent.kyn}</p>
-              <p contentEditable='true'>{modalContent.aldur}</p>
-              <p contentEditable='true'>{modalContent.ormerking}</p>
-              <p contentEditable='true'>{modalContent.litur}</p>
-              <p contentEditable='true'>{modalContent.heitiEigandi}</p>
-              <p contentEditable='true'>{modalContent.ktEigandi}</p>
-              <p contentEditable='true'>{modalContent.heimilisfangEigandi}</p>
-              <p contentEditable='true'>{modalContent.simiEigandi}</p>
-              <p contentEditable='true'>{modalContent.athugasemdir}</p>
+              <h1 contentEditable='true'>Cat Name{modalContent.heitiKattar}</h1>
+              <p></p>
+              <p contentEditable='true'>Cat Name{modalContent.kyn}</p>
+              <p contentEditable='true'>Cat Name{modalContent.aldur}</p>
+              <p contentEditable='true'>Cat Name{modalContent.ormerking}</p>
+              <p contentEditable='true'>Cat Name{modalContent.litur}</p>
+              <p contentEditable='true'>Cat Name{modalContent.heitiEigandi}</p>
+              <p contentEditable='true'>Cat Name{modalContent.ktEigandi}</p>
+              <p contentEditable='true'>
+                Cat Name{modalContent.heimilisfangEigandi}
+              </p>
+              <p contentEditable='true'>Cat Name{modalContent.simiEigandi}</p>
+              <p contentEditable='true'>Cat Name{modalContent.athugasemdir}</p>
             </div>
           </div>
         </div>
-        <button onClick={deleteCat}>Delete Cat</button>
+        <button onClick={() => deleteCat(modalContent._id)}>Delete Cat</button>
       </Modal>
     </>
   );

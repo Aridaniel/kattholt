@@ -21,21 +21,21 @@ app.use(express.json());
 app.use(cors());
 
 // API that gets the data from the MongoDB
-const MongoClient = require('mongodb').MongoClient;
-const { GrUserSettings } = require('react-icons/gr');
-const uri = process.env.DATABASE_ACCESS;
-const client = new MongoClient(uri, { useNewUrlParser: true });
+// const MongoClient = require('mongodb').MongoClient;
+// const { GrUserSettings } = require('react-icons/gr');
+// const uri = process.env.DATABASE_ACCESS;
+// const client = new MongoClient(uri, { useNewUrlParser: true });
 
-app.get('/api', (req, res) => {
-  client.connect(async (err) => {
-    // targets the right collection in the DB
-    const collection = client.db('kisurtable').collection('kisurtables');
-    // Turns the MongoDB data in to an array
-    const data = await collection.find().toArray();
-    // sends out JSON data to the /api
-    res.send(JSON.stringify(data));
-  });
-});
+// app.get('/api', (req, res) => {
+//   client.connect(async (err) => {
+//     // targets the right collection in the DB
+//     const collection = client.db('kisurtable').collection('kisurtables');
+//     // Turns the MongoDB data in to an array
+//     const data = await collection.find().toArray();
+//     // sends out JSON data to the /api
+//     res.send(JSON.stringify(data));
+//   });
+// });
 
 app.use('/', routesUrls);
 app.listen(4000, () => console.log('Server is up and running'));

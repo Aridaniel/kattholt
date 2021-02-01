@@ -2,7 +2,7 @@ POST http://localhost:4000/kittyprofile
 Content-Type: application/json
 
     {
-     "heitiKattar": "Smári",
+     "heitiKattar": "Kalli",
      "kyn": "KK",
      "aldur":38,
      "ormerking":222222222222,
@@ -16,5 +16,3 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:4000/api/_id
-Content-Type: application/json

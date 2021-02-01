@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 
 const kottur = new mongoose.Schema({
-//   _id: {
-//     type: mongoose.Schema.ObjectId,
-//   },
+  _id: {
+    type: mongoose.Schema.ObjectId,
+  },
   heitiKattar: {
     type: String,
     required: true,
   },
   kyn: {
     type: String,
-    required: true,
+    required: false,
   },
   aldur: {
     type: Number,
-    required: true,
+    required: false,
   },
   ormerking: {
     type: Number,
@@ -23,7 +23,7 @@ const kottur = new mongoose.Schema({
 
   litur: {
     type: String,
-    required: true,
+    required: false,
   },
   heitiEigandi: {
     type: String,

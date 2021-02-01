@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from './CatProfileModal';
 import Logo from '../img/logo_horizontal.svg';
 import { Link } from 'react-router-dom';
+import NewCatModal from '../components/NewCatModal'
 
 function Dashboard() {
   return (
@@ -10,7 +11,7 @@ function Dashboard() {
         <img src={Logo} />
       </Link>
       <div className='header'>
-        <button className='btn'>Ný kisa</button>
+       <NewCatModal/>
         <button className='btn'>search</button>
       </div>
 

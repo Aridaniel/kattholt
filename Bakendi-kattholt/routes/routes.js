@@ -4,38 +4,26 @@ const kisi = require('../models/kottur');
 const mongosse = require('mongoose');
 // const ObjectId = require('mongoose').Types.ObjectId;
 
-
 // delete the cat from the DB
+router.delete('/kittyprofile/:idKottur', (req, res) => {
+  // const deletekisi = new kisi();
 
-router.delete('/api/:ormerking', (req, res) => {
-  const deletekisi = new kisi();
-  const { ormerking } = req.params;
-  console.log(ormerking);
+  const { idKottur } = req.params;
+  console.log(JSON.stringify(idKottur));
 
-  deletekisi.find({ ormerking }).remove(function (err) {
+  kisi.find({ _id: idKottur }).remove(function (err) {
     if (err) console.log(err);
   });
 
-  res.send(`Cat with the ormerking ${ormerking} was deleted from the database`);
+  res.send(`Cat with the ormerking ${idKottur} was deleted from the database`);
 });
-
 
 // add a new cat to the DB
 
 router.post('/kittyprofile', (request, response) => {
-  const nyrKisi = new kisi({
-    heitiKattar: request.body.heitiKattar,
-    kyn: request.body.kyn,
-    aldur: request.body.aldur,
-    ormerking: request.body.ormerking,
-    nr: request.body.nr,
-    litur: request.body.litur,
-    heitiEigandi: request.body.heitiEigandi,
-    ktEigandi: request.body.ktEigandi,
-    heimilisfangEigandi: request.body.heimilisfangEigandi,
-    simiEigandi: request.body.simiEigandi,
-    athugasemdir: request.body.athugasemdir,
-  });
+  console.log(request.body);
+  const nyrKisi = new kisi(request.body);
+  nyrKisi.markModified('heitiKattar');
   nyrKisi
     .save()
     .then((data) => {
