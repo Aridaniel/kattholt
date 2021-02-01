@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { GrFormClose } from 'react-icons/gr';
 
+import Loading from '../img/loading.gif';
+
 // cat photo
 const url =
   'https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg';
@@ -11,13 +13,21 @@ function CatProfileModal() {
   const [modalContent, setModalContent] = useState({});
   const [deleted, setDeleted] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:4000/api');
-      const data = await response.json();
-      setContent(data);
+      setLoading(true);
+      try {
+        const response = await fetch('http://localhost:4000/api');
+        const data = await response.json();
+        setContent(data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.log(error);
+      }
     };
-
     fetchData();
   }, []);
 
@@ -31,26 +41,28 @@ function CatProfileModal() {
     setIsOpen(false);
   }
 
-
   // Delete cat from DB
 
-  // const apiUrl = 'http://localhost:4000/api';
+  const apiUrl = 'http://localhost:4000/api';
 
-  // // deleting cat from project
-  // const deleteCat = async (id) => {
-  //   await fetch(`${apiUrl}/${ormerking}`, {
-  //     method: 'DELETE',
-  //   });
-  //   // return list minus deleted object
-  //   setDeleted(
-  //     deleted.filter((cat) => {
-  //       return cat.ormerking !== ormerking;
-  //     })
-  //   );
-  // };
+  // deleting cat from project
+  const deleteCat = async (id) => {
+    await fetch(apiUrl, {
+      method: 'DELETE',
+    });
+  };
 
-
-
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+      }}>
+        <img src={Loading} alt='' />
+      </div>
+    );
+  }
   return (
     <>
       {/* This is the button that opens the modal/ cat profile  */}
@@ -97,7 +109,7 @@ function CatProfileModal() {
             </div>
           </div>
         </div>
-        <button>Delete Cat</button>
+        <button onClick={deleteCat}>Delete Cat</button>
       </Modal>
     </>
   );

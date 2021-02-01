@@ -4,21 +4,23 @@ const kisi = require('../models/kottur');
 const mongosse = require('mongoose');
 // const ObjectId = require('mongoose').Types.ObjectId;
 
-router.delete('/ormerking', (req, res) => {
+
+// delete the cat from the DB
+
+router.delete('/api/:ormerking', (req, res) => {
   const deletekisi = new kisi();
   const { ormerking } = req.params;
   console.log(ormerking);
+
   deletekisi.find({ ormerking }).remove(function (err) {
     if (err) console.log(err);
   });
 
-  res.send(`Cat with the Örmerking ${ormerking} was deleted from the database`);
+  res.send(`Cat with the ormerking ${ormerking} was deleted from the database`);
 });
 
 
-
-
-
+// add a new cat to the DB
 
 router.post('/kittyprofile', (request, response) => {
   const nyrKisi = new kisi({
