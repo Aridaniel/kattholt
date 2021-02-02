@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const kisi = require('../models/kottur');
-const mongosse = require('mongoose');
+const mongoose = require('mongoose');
 // const ObjectId = require('mongoose').Types.ObjectId;
 
 // delete the cat from the DB
@@ -22,16 +22,32 @@ router.delete('/kittyprofile/:idKottur', (req, res) => {
 
 router.post('/kittyprofile', (request, response) => {
   console.log(request.body);
-  const nyrKisi = new kisi(request.body);
-  nyrKisi.markModified('heitiKattar');
-  nyrKisi
-    .save()
-    .then((data) => {
-      response.json(data);
-    })
-    .catch((error) => {
-      response.json(error);
-    });
+  // const nyrKisi = new kisi(request.body);
+  // nyrKisi.markModified('heitiKattar');
+  // nyrKisi
+  //   .save()
+  //   .then((data) => {
+  //     response.json(data);
+  //   })
+  //   .catch((error) => {
+  //     response.json(error);
+  //   });
+  kisi.create(request.body);
+});
+
+router.get('/api', async (req, res) => {
+  // Turns the MongoDB data in to an array
+  const data = await kisi.find({}, (err, kisur) => {
+    // sends out JSON data to the /api
+    res.send(JSON.stringify(kisur));
+  });
+});
+
+router.put('/kittyprofile/:idKottur', async (req, res) => {
+  const updateData = await kisi.findOneAndUpdate({id:req.body.idKottur}, (err, kisur) => {
+    res.json(idKottur);
+  })
+  console.log(updateData);
 });
 
 module.exports = router;

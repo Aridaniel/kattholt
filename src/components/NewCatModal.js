@@ -85,7 +85,7 @@ function NewCatModal() {
               <input
                 name='CatName'
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Cat Gender'
                 type='text'
               />
               <input

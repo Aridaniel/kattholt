@@ -2,16 +2,16 @@ POST http://localhost:4000/kittyprofile
 Content-Type: application/json
 
     {
-     "heitiKattar": "Kalli",
+     "heitiKattar": "Magnús",
      "kyn": "KK",
      "aldur":38,
-     "ormerking":222222222222,
-     "litur":"gulur",
-     "heitiEigandi":"Pedro",
-     "ktEigandi":"87679343434",
-     "heimilisfangEigandi":"Hafnafjörður",
-     "simiEigandi":"5812345",
-     "athugamsemdir":"mjáwesome"
+     "ormerking":222522222222,
+     "litur":"grænn",
+     "heitiEigandi":"Jhonny Mcbain",
+     "ktEigandi":"87679383434",
+     "heimilisfangEigandi":"Kársnes",
+     "simiEigandi":"5819345",
+     "athugamsemdir":"Ekki gefa tunfisk"
     }
 
 ###

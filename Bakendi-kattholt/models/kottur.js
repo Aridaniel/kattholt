@@ -1,44 +1,35 @@
 const mongoose = require('mongoose');
 
 const kottur = new mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.ObjectId,
-  },
   heitiKattar: {
-    type: String,
-    required: true,
+    type: String
   },
   kyn: {
-    type: String,
-    required: false,
+    type: String
   },
   aldur: {
-    type: Number,
-    required: false,
+    type: Number
   },
   ormerking: {
-    type: Number,
-    required: false,
+    type: Number
   },
-
   litur: {
-    type: String,
-    required: false,
+    type: String
   },
   heitiEigandi: {
-    type: String,
+    type: String
   },
   ktEigandi: {
-    type: Number,
+    type: Number
   },
   heimilisfangEigandi: {
-    type: String,
+    type: String
   },
   simiEigandi: {
-    type: Number,
+    type: Number
   },
   athugasemdir: {
-    type: String,
+    type: String
   },
 });
 

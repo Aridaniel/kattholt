@@ -54,6 +54,15 @@ function CatProfileModal() {
     });
   };
 
+  // update cat info
+  const updateCat = async (id) => {
+    await fetch(apiUrl + id, {
+      method: 'PUT',
+    }).then(() => {
+      setIsOpen(false);
+    })
+  };
+
   // loading screen before the API loads fully
 
   if (loading) {
@@ -108,23 +117,21 @@ function CatProfileModal() {
           <img style={{ height: '200px', width: '200px' }} src={url} alt='' />
           <div className='cat-info'>
             <div className='name'>
-              <h1 contentEditable='true'>Cat Name{modalContent.heitiKattar}</h1>
-              <p></p>
-              <p contentEditable='true'>Cat Name{modalContent.kyn}</p>
-              <p contentEditable='true'>Cat Name{modalContent.aldur}</p>
-              <p contentEditable='true'>Cat Name{modalContent.ormerking}</p>
-              <p contentEditable='true'>Cat Name{modalContent.litur}</p>
-              <p contentEditable='true'>Cat Name{modalContent.heitiEigandi}</p>
-              <p contentEditable='true'>Cat Name{modalContent.ktEigandi}</p>
-              <p contentEditable='true'>
-                Cat Name{modalContent.heimilisfangEigandi}
-              </p>
-              <p contentEditable='true'>Cat Name{modalContent.simiEigandi}</p>
-              <p contentEditable='true'>Cat Name{modalContent.athugasemdir}</p>
+              <h1 contentEditable='true'>{modalContent.heitiKattar}</h1>
+              <p contentEditable='true'>{modalContent.kyn}</p>
+              <p contentEditable='true'>{modalContent.aldur}</p>
+              <p contentEditable='true'>{modalContent.ormerking}</p>
+              <p contentEditable='true'>{modalContent.litur}</p>
+              <p contentEditable='true'>{modalContent.heitiEigandi}</p>
+              <p contentEditable='true'>{modalContent.ktEigandi}</p>
+              <p contentEditable='true'>{modalContent.heimilisfangEigandi}</p>
+              <p contentEditable='true'>{modalContent.simiEigandi}</p>
+              <p contentEditable='true'>{modalContent.athugasemdir}</p>
             </div>
           </div>
         </div>
-        <button onClick={() => deleteCat(modalContent._id)}>Delete Cat</button>
+        <button className="btn" onClick={() => deleteCat(modalContent._id)}>Delete Cat</button>
+        <button className="btn" onClick={() => updateCat(modalContent._id)}>Save Changes</button>
       </Modal>
     </>
   );
