@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import { GrFormClose } from 'react-icons/gr';
+import { GrClose } from 'react-icons/gr';
 
+
+//States
 function NewCatModal() {
   const [content, setContent] = useState([]);
   const [submit, setSubmit] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
 
+
+  // OPEN & CLOSE modal
   function openModal(catInfo) {
     setIsOpen(true);
   }
@@ -28,20 +32,22 @@ function NewCatModal() {
     fetchData();
   }, []);
 
+
+
+
+
   const apiUrl = 'http://localhost:4000/kittyprofile';
 
   // Post cat
   const postCat = async () => {
     console.log(submit);
+    window.location.reload();
     await fetch(apiUrl, {
       method: 'POST',
       body: JSON.stringify(submit),
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-    .then((x)=>{
-        console.log(x)
     })
   };
 
@@ -51,6 +57,12 @@ function NewCatModal() {
       [e.target.name]: e.target.value,
     })
   };
+
+
+
+
+
+
 
   return (
     <>
@@ -67,73 +79,75 @@ function NewCatModal() {
         contentLabel='Example Modal'
       >
         {/* Close modal button */}
-        <button onClick={closeModal}>
-          <GrFormClose />
+        <button  onClick={closeModal}>
+          <GrClose />
         </button>
 
-        <div key={content._id}>
+        <div className= 'catKassi' key={content._id}>
           <img style={{ height: '200px', width: '200px' }} alt='' />
           <div className='cat-info'>
             <div className='newcatfields'>
               <h1>Cat Name</h1>
+              <label> Heiti Kattar: </label>
               <input
                 name='heitiKattar'
                 onChange={handleChanger}
                 placeholder='Cat Name'
                 type='text'
               />
+              <label>Kyn: </label>
               <input
-                name='CatName'
+                name='Kyn'
                 onChange={handleChanger}
-                placeholder='Cat Gender'
+                placeholder='Kyn'
                 type='text'
               />
+              <label>Aldur: </label>
               <input
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Aldur'
                 type='text'
               />
+              <label>Örmerking: </label>
               <input
-                name='CatName'
+                name='Örmerking'
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Örmerking'
                 type='text'
               />
+              <label>Litur: </label>
               <input
-                name='CatName'
+                name='Litur'
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Litur'
                 type='text'
               />
+              <label>Heiti Eiganda</label>
               <input
-                name='CatName'
+                name='Heiti Eiganda'
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Heiti Eiganda'
                 type='text'
               />
+              <label>Kennitala Eiganda</label>
               <input
-                name='CatName'
+                name='Kennitala Eiganda'
                 onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Kennitala Eiganda'
                 type='text'
               />
+              <label>Heimilisfang Eiganda</label>
               <input
-                name='CatName'
+                name ='Heimilisfang Eiganda'
                 onChange={handleChanger}
-                placeholder='CatName'
-                type='text'
-              />
-              <input
-                name='CatName'
-                onChange={handleChanger}
-                placeholder='CatName'
+                placeholder='Heimilisfang Eiganda'
                 type='text'
               />
             </div>
           </div>
         </div>
 
-        <button onClick={postCat}>Submit Cat</button>
+        <button className= 'btn' onClick={postCat}>New Cat</button>
       </Modal>
     </>
   );

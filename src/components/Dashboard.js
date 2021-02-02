@@ -3,6 +3,7 @@ import Modal from './CatProfileModal';
 import Logo from '../img/logo_horizontal.svg';
 import { Link } from 'react-router-dom';
 import NewCatModal from '../components/NewCatModal'
+import  Search  from "../components/Search";
 
 function Dashboard() {
   return (
@@ -12,12 +13,13 @@ function Dashboard() {
       </Link>
       <div className='header'>
        <NewCatModal/>
-        <button className='btn'>search</button>
+        <button className='btn'>Search</button>
+        <Search/>
       </div>
 
       <div className='tabs'>
         <div className='btn_athvarf'>
-          <button className='btn'>Athvarf</button>
+          <button onclick=''className='btn'>Athvarf</button>
         </div>
         <div className='btn_hotel'>
           <button className='btn'>Hotel</button>

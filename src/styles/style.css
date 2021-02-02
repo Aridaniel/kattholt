@@ -89,24 +89,39 @@ h1 {
 /* Cat modal button */
 .cat-container {
   display: flex;
-  background: grey;
-  max-width: 00px;
-  min-width: 400px;
+  background: rgb(162, 161, 161);
+  width: 65%;
   margin: 0 auto;
+  justify-content: center;
 }
 
-.cat-container img {
-  height: 100px;
-  width: 100px;
-}
 
 .cat-container .cat-info {
   flex-direction: column;
   justify-content: flex-start;
 }
 
+.cat-container img {
+  margin-top: 7rem;
+  height: 12rem;
+  width: 12rem;
+  
+}
+
+
+/* NEW CAT */
+
 .newcatfields {
   display: flex;
   flex-direction: column;
   max-width: 300px;
+}
+
+label{
+  margin-top: 1rem;
+}
+
+.closeNewCatBtn{
+  size: 10px;
+  justify-content: flex-start;
 }

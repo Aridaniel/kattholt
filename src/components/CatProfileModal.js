@@ -39,7 +39,7 @@ function CatProfileModal() {
     setIsOpen(false);
   }
 
-  // Delete cat from DB
+  // DELETE cat from DB
 
   const apiUrl = 'http://localhost:4000/kittyprofile/';
 
@@ -54,14 +54,39 @@ function CatProfileModal() {
     });
   };
 
-  // update cat info
+
+
+
+
+  // UPDATE cat info
+
+ const changeCat = (e) => {
+  setModalContent({
+    ...modalContent,
+    [e.target.name]: e.target.value,
+  })
+};
+
+
+
   const updateCat = async (id) => {
     await fetch(apiUrl + id, {
       method: 'PUT',
+      body: JSON.stringify(modalContent),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }).then(() => {
       setIsOpen(false);
+      window.location.reload();
+
     })
   };
+
+
+
+
+
 
   // loading screen before the API loads fully
 
@@ -89,7 +114,7 @@ function CatProfileModal() {
             className='cat-container'
             onClick={() => openModal(i)}
           >
-            <div>
+            <div className= 'catProfileBox'>
               <img src={url} alt='' />
               <div className='cat-info'>
                 <div className='name'>
@@ -116,17 +141,29 @@ function CatProfileModal() {
         <div key={content._id}>
           <img style={{ height: '200px', width: '200px' }} src={url} alt='' />
           <div className='cat-info'>
-            <div className='name'>
-              <h1 contentEditable='true'>{modalContent.heitiKattar}</h1>
-              <p contentEditable='true'>{modalContent.kyn}</p>
-              <p contentEditable='true'>{modalContent.aldur}</p>
-              <p contentEditable='true'>{modalContent.ormerking}</p>
-              <p contentEditable='true'>{modalContent.litur}</p>
-              <p contentEditable='true'>{modalContent.heitiEigandi}</p>
-              <p contentEditable='true'>{modalContent.ktEigandi}</p>
-              <p contentEditable='true'>{modalContent.heimilisfangEigandi}</p>
-              <p contentEditable='true'>{modalContent.simiEigandi}</p>
-              <p contentEditable='true'>{modalContent.athugasemdir}</p>
+            <div className='newcatfields'>
+              <label> Heiti Kattar: </label>
+              <input name='heitiKattar' onChange={changeCat} placeholder= {modalContent.heitiKattar} />
+              <label> Kyn: </label>
+              <input name='kyn' onChange={changeCat} placeholder= {modalContent.kyn} />
+              <label> Aldur: </label>
+              <input name='aldur' onChange={changeCat} placeholder= {modalContent.aldur} />
+              <label> Örmerking: </label>
+              <input name='ormerking' onChange={changeCat} placeholder= {modalContent.ormerking} />
+              <label> Litur: </label>
+              <input name='litur' onChange={changeCat} placeholder= {modalContent.litur} />
+              <label> Heiti Eiganda: </label>
+              <input name='heitiEigandi' onChange={changeCat} placeholder= {modalContent.heitiEigandi} />
+              <label> Kennitala Eiganda: </label>
+              <input name='ktEigandi' onChange={changeCat} placeholder= {modalContent.ktEigandi} />
+              <label> Heimilisfang Eiganda: </label>
+              <input name='heimilisfangEigandi' onChange={changeCat} placeholder= {modalContent.heimilisfangEigandi} />
+              <label> Sími Eiganda: </label>
+              <input name='simiEigandi' onChange={changeCat} placeholder= {modalContent.simiEigandi} />
+              <label> Athugasemdir: </label>
+              <input name='athugasemdir' onChange={changeCat} placeholder= {modalContent.athugamsemdir} />
+
+              
             </div>
           </div>
         </div>
