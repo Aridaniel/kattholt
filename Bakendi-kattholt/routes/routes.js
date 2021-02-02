@@ -4,36 +4,41 @@ const kisi = require('../models/kottur');
 const mongoose = require('mongoose');
 // const ObjectId = require('mongoose').Types.ObjectId;
 
-// delete the cat from the DB
-router.delete('/kittyprofile/:idKottur', (req, res) => {
-  // const deletekisi = new kisi();
 
+
+
+
+
+
+router.delete('/kittyprofile/:idKottur', (req, res) => {
+  
+  // const deletekisi = new kisi();
+  
   const { idKottur } = req.params;
   console.log(JSON.stringify(idKottur));
 
   kisi.find({ _id: idKottur }).remove(function (err) {
     if (err) console.log(err);
   });
-
   res.send(`Cat with the ormerking ${idKottur} was deleted from the database`);
 });
 
-// add a new cat to the DB
+
+
+
+
+// Add a new cat to the DB
 
 router.post('/kittyprofile', (request, response) => {
-  console.log(request.body);
-  // const nyrKisi = new kisi(request.body);
-  // nyrKisi.markModified('heitiKattar');
-  // nyrKisi
-  //   .save()
-  //   .then((data) => {
-  //     response.json(data);
-  //   })
-  //   .catch((error) => {
-  //     response.json(error);
-  //   });
   kisi.create(request.body);
 });
+
+
+
+
+
+
+// Get data Cats from DAtabase
 
 router.get('/api', async (req, res) => {
   // Turns the MongoDB data in to an array
@@ -43,11 +48,25 @@ router.get('/api', async (req, res) => {
   });
 });
 
-router.put('/kittyprofile/:idKottur', async (req, res) => {
-  const updateData = await kisi.findOneAndUpdate({id:req.body.idKottur}, (err, kisur) => {
-    res.json(idKottur);
+
+
+
+// Update CAt
+
+
+router.put('/kittyprofile/:idKottur', (req, res) => {
+
+
+  const { idKottur } = req.params;
+  console.log(JSON.stringify(idKottur));
+  kisi.updateOne({ _id: idKottur }, req.body)
+  .then(()=>{
+    res.send('Changing data')
+    console.log(req.body)
+
   })
-  console.log(updateData);
+  
 });
+
 
 module.exports = router;
