@@ -106,13 +106,15 @@ function CatProfileModal() {
             className='cat-container'
             onClick={() => openModal(i)}
           >
-            <div className='catProfileBox'>
-              <img src={url} alt='' />
+            <div className='catprofilebox'>
+              <img className="catProfilePic" src={url} alt='' />
               <div className='cat-info'>
                 <div className='name'>
                   <h1>{i.heitiKattar}</h1>
+                  <h3>Age</h3>
                   <p>{i.aldur}</p>
                 </div>
+                <h3>Örmerking</h3>
                 <div className='ormerki'>{i.ormerking}</div>
               </div>
             </div>

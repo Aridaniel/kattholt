@@ -74,6 +74,11 @@ h1 {
   margin-bottom: 15px;
 }
 
+h3 {
+  color: rgb(83, 75, 57);
+}
+
+
 /* Dashboard Styling */
 .header {
   display: flex;
@@ -89,8 +94,9 @@ h1 {
 
 /* Cat modal button */
 .cat-container {
+  border: 2px solid rgb(105, 105, 105);
   display: flex;
-  background: rgb(162, 161, 161);
+  background: rgb(212, 211, 211);
   width: 50%;
   margin: 20px auto;
   justify-content: center;
@@ -101,16 +107,27 @@ h1 {
    background: indianred;
 }
 
+.catprofilebox {
+  display: flex;
+  flex-direction: row;
+}
+
 
 .cat-container .cat-info {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
 }
 
 .cat-container img {
   margin-top: 7rem;
   height: 12rem;
   width: 12rem;
+}
+
+.catProfilePic {
+  border: 2px solid rgb(105, 105, 105);
 }
 
 
@@ -131,4 +148,3 @@ label{
   size: 10px;
   justify-content: flex-start;
 }
-
