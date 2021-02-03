@@ -17,14 +17,10 @@ mongoose.connect(
   () => console.log('Database is connected')
 );
 
+
 app.use(express.json());
 app.use(cors());
 
-// API that gets the data from the MongoDB
-// const MongoClient = require('mongodb').MongoClient;
-// const { GrUserSettings } = require('react-icons/gr');
-// const uri = process.env.DATABASE_ACCESS;
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-
+// importing routes
 app.use('/', routesUrls);
 app.listen(4000, () => console.log('Server is up and running'));

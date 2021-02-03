@@ -17,14 +17,14 @@ function Dashboard() {
         <Search/>
       </div>
 
-      <div className='tabs'>
+      {/* <div className='tabs'>
         <div className='btn_athvarf'>
           <button onclick=''className='btn'>Athvarf</button>
         </div>
         <div className='btn_hotel'>
           <button className='btn'>Hotel</button>
         </div>
-      </div>
+      </div> */}
       <Modal />
     </>
   );

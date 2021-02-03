@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { GrClose } from 'react-icons/gr';
 
-
 //States
 function NewCatModal() {
   const [content, setContent] = useState([]);
   const [submit, setSubmit] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
-
 
   // OPEN & CLOSE modal
   function openModal(catInfo) {
@@ -32,37 +30,31 @@ function NewCatModal() {
     fetchData();
   }, []);
 
-
-
-
-
+  // API url used in the function below
   const apiUrl = 'http://localhost:4000/kittyprofile';
 
-  // Post cat
+  // Post cat for adding a new cat to the DB
   const postCat = async () => {
-    console.log(submit);
-    window.location.reload();
-    await fetch(apiUrl, {
-      method: 'POST',
-      body: JSON.stringify(submit),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    try {
+      window.location.reload();
+      await fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify(submit),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChanger = (e) => {
     setSubmit({
       ...submit,
       [e.target.name]: e.target.value,
-    })
+    });
   };
-
-
-
-
-
-
 
   return (
     <>
@@ -79,75 +71,52 @@ function NewCatModal() {
         contentLabel='Example Modal'
       >
         {/* Close modal button */}
-        <button  onClick={closeModal}>
+        <button onClick={closeModal}>
           <GrClose />
         </button>
 
-        <div className= 'catKassi' key={content._id}>
-          <img style={{ height: '200px', width: '200px' }} alt='' />
+        <div className='catKassi' key={content._id}>
           <div className='cat-info'>
             <div className='newcatfields'>
-              <h1>Cat Name</h1>
+              <h2>Ný kisa</h2>
+              <p>
+                Bættu kisunni við með því að fylla inn í skjalið hér að neðan.
+              </p>
               <label> Heiti Kattar: </label>
-              <input
-                name='heitiKattar'
-                onChange={handleChanger}
-                placeholder='Cat Name'
-                type='text'
-              />
+              <input name='heitiKattar' onChange={handleChanger} type='text' />
               <label>Kyn: </label>
-              <input
-                name='Kyn'
-                onChange={handleChanger}
-                placeholder='Kyn'
-                type='text'
-              />
+              <input name='Kyn' onChange={handleChanger} type='text' />
               <label>Aldur: </label>
-              <input
-                onChange={handleChanger}
-                placeholder='Aldur'
-                type='text'
-              />
+              <input onChange={handleChanger} type='text' />
               <label>Örmerking: </label>
-              <input
-                name='Örmerking'
-                onChange={handleChanger}
-                placeholder='Örmerking'
-                type='text'
-              />
+              <input name='Örmerking' onChange={handleChanger} type='text' />
               <label>Litur: </label>
-              <input
-                name='Litur'
-                onChange={handleChanger}
-                placeholder='Litur'
-                type='text'
-              />
-              <label>Heiti Eiganda</label>
+              <input name='Litur' onChange={handleChanger} type='text' />
+              <label>Heiti Eiganda:</label>
               <input
                 name='Heiti Eiganda'
                 onChange={handleChanger}
-                placeholder='Heiti Eiganda'
                 type='text'
               />
-              <label>Kennitala Eiganda</label>
+              <label>Kennitala Eiganda:</label>
               <input
                 name='Kennitala Eiganda'
                 onChange={handleChanger}
-                placeholder='Kennitala Eiganda'
                 type='text'
               />
-              <label>Heimilisfang Eiganda</label>
+              <label>Heimilisfang Eiganda:</label>
               <input
-                name ='Heimilisfang Eiganda'
+                name='Heimilisfang Eiganda'
                 onChange={handleChanger}
-                placeholder='Heimilisfang Eiganda'
                 type='text'
               />
             </div>
           </div>
         </div>
 
-        <button className= 'btn' onClick={postCat}>New Cat</button>
+        <button className='btn' onClick={postCat}>
+          Add Cat
+        </button>
       </Modal>
     </>
   );

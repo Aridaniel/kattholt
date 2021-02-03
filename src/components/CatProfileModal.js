@@ -45,29 +45,27 @@ function CatProfileModal() {
 
   // deleting cat from project
   const deleteCat = async (id) => {
-    await fetch(apiUrl + id, {
-      method: 'DELETE',
-    }).then(() => {
-      setIsOpen(false);
-      setContent(content.filter((c) => c['_id'] !== id));
-      console.log(content.filter((c) => c['_id'] !== id));
-    });
+    try {
+      await fetch(apiUrl + id, {
+        method: 'DELETE',
+      }).then(() => {
+        setIsOpen(false);
+        setContent(content.filter((c) => c['_id'] !== id));
+        console.log(content.filter((c) => c['_id'] !== id));
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-
-
-
 
   // UPDATE cat info
 
- const changeCat = (e) => {
-  setModalContent({
-    ...modalContent,
-    [e.target.name]: e.target.value,
-  })
-};
-
-
+  const changeCat = (e) => {
+    setModalContent({
+      ...modalContent,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const updateCat = async (id) => {
     await fetch(apiUrl + id, {
@@ -79,14 +77,8 @@ function CatProfileModal() {
     }).then(() => {
       setIsOpen(false);
       window.location.reload();
-
-    })
+    });
   };
-
-
-
-
-
 
   // loading screen before the API loads fully
 
@@ -114,7 +106,7 @@ function CatProfileModal() {
             className='cat-container'
             onClick={() => openModal(i)}
           >
-            <div className= 'catProfileBox'>
+            <div className='catProfileBox'>
               <img src={url} alt='' />
               <div className='cat-info'>
                 <div className='name'>
@@ -143,32 +135,74 @@ function CatProfileModal() {
           <div className='cat-info'>
             <div className='newcatfields'>
               <label> Heiti Kattar: </label>
-              <input name='heitiKattar' onChange={changeCat} placeholder= {modalContent.heitiKattar} />
+              <input
+                name='heitiKattar'
+                onChange={changeCat}
+                placeholder={modalContent.heitiKattar}
+              />
               <label> Kyn: </label>
-              <input name='kyn' onChange={changeCat} placeholder= {modalContent.kyn} />
+              <input
+                name='kyn'
+                onChange={changeCat}
+                placeholder={modalContent.kyn}
+              />
               <label> Aldur: </label>
-              <input name='aldur' onChange={changeCat} placeholder= {modalContent.aldur} />
+              <input
+                name='aldur'
+                onChange={changeCat}
+                placeholder={modalContent.aldur}
+              />
               <label> Örmerking: </label>
-              <input name='ormerking' onChange={changeCat} placeholder= {modalContent.ormerking} />
+              <input
+                name='ormerking'
+                onChange={changeCat}
+                placeholder={modalContent.ormerking}
+              />
               <label> Litur: </label>
-              <input name='litur' onChange={changeCat} placeholder= {modalContent.litur} />
+              <input
+                name='litur'
+                onChange={changeCat}
+                placeholder={modalContent.litur}
+              />
               <label> Heiti Eiganda: </label>
-              <input name='heitiEigandi' onChange={changeCat} placeholder= {modalContent.heitiEigandi} />
+              <input
+                name='heitiEigandi'
+                onChange={changeCat}
+                placeholder={modalContent.heitiEigandi}
+              />
               <label> Kennitala Eiganda: </label>
-              <input name='ktEigandi' onChange={changeCat} placeholder= {modalContent.ktEigandi} />
+              <input
+                name='ktEigandi'
+                onChange={changeCat}
+                placeholder={modalContent.ktEigandi}
+              />
               <label> Heimilisfang Eiganda: </label>
-              <input name='heimilisfangEigandi' onChange={changeCat} placeholder= {modalContent.heimilisfangEigandi} />
+              <input
+                name='heimilisfangEigandi'
+                onChange={changeCat}
+                placeholder={modalContent.heimilisfangEigandi}
+              />
               <label> Sími Eiganda: </label>
-              <input name='simiEigandi' onChange={changeCat} placeholder= {modalContent.simiEigandi} />
+              <input
+                name='simiEigandi'
+                onChange={changeCat}
+                placeholder={modalContent.simiEigandi}
+              />
               <label> Athugasemdir: </label>
-              <input name='athugasemdir' onChange={changeCat} placeholder= {modalContent.athugamsemdir} />
-
-              
+              <input
+                name='athugasemdir'
+                onChange={changeCat}
+                placeholder={modalContent.athugamsemdir}
+              />
             </div>
           </div>
         </div>
-        <button className="btn" onClick={() => deleteCat(modalContent._id)}>Delete Cat</button>
-        <button className="btn" onClick={() => updateCat(modalContent._id)}>Save Changes</button>
+        <button className='btn' onClick={() => deleteCat(modalContent._id)}>
+          Delete Cat
+        </button>
+        <button className='btn' onClick={() => updateCat(modalContent._id)}>
+          Save Changes
+        </button>
       </Modal>
     </>
   );
