@@ -78,6 +78,9 @@ h3 {
   color: rgb(83, 75, 57);
 }
 
+label {
+  font-size: 24px;
+}
 
 /* Dashboard Styling */
 .header {
@@ -104,7 +107,7 @@ h3 {
 }
 
 .cat-container:hover {
-   background: indianred;
+  background: indianred;
 }
 
 .catprofilebox {
@@ -112,6 +115,12 @@ h3 {
   flex-direction: row;
 }
 
+/* Larger screens */
+@media (max-width: 768px) {
+  .catprofilebox {
+    flex-direction: column;
+  }
+}
 
 .cat-container .cat-info {
   flex-direction: column;
@@ -130,7 +139,6 @@ h3 {
   border: 2px solid rgb(105, 105, 105);
 }
 
-
 /* NEW CAT */
 
 .newcatfields {
@@ -140,11 +148,11 @@ h3 {
   max-width: 300px;
 }
 
-label{
+label {
   margin-top: 1rem;
 }
 
-.closeNewCatBtn{
+.closeNewCatBtn {
   size: 10px;
   justify-content: flex-start;
 }
