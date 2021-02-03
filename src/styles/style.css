@@ -70,7 +70,7 @@ button:hover {
   color: black;
   background-color: rgb(45, 172, 177);
   width: 100px;
-  border-radius: 50px;
+  border-radius: 11px;
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -176,8 +176,11 @@ label {
   max-width: 300px;
 }
 
-label {
+label, input {
   margin-top: 1rem;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 20px;
 }
 
 .closeNewCatBtn {

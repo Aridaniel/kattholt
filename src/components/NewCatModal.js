@@ -70,6 +70,15 @@ function NewCatModal() {
         closeTimeoutMS={200}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
+        style={{
+          content: {
+            maxWidth: '700px',
+            margin: '0 auto',
+            border: '2px solid rgb(105, 105, 105)',
+            background: 'rgb(212, 211, 211)',
+            borderRadius: '11px',
+          },
+        }}
       >
         {/* Close modal button */}
         <button onClick={closeModal}>

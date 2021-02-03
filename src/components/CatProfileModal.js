@@ -128,6 +128,15 @@ function CatProfileModal() {
         ariaHideApp={false}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
+        style={{
+          content: {
+            maxWidth: '700px',
+            margin: '0 auto',
+            border: '2px solid rgb(105, 105, 105)',
+            background: 'rgb(212, 211, 211)',
+            borderRadius: '11px',
+          },
+        }}
       >
         <button onClick={closeModal}>
           <GrFormClose />
