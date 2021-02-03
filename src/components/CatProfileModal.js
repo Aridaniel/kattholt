@@ -107,7 +107,7 @@ function CatProfileModal() {
             onClick={() => openModal(i)}
           >
             <div className='catprofilebox'>
-              <img className="catProfilePic" src={url} alt='' />
+              <img className='catProfilePic' src={url} alt='' />
               <div className='cat-info'>
                 <div className='name'>
                   <h1>{i.heitiKattar}</h1>
@@ -124,6 +124,7 @@ function CatProfileModal() {
 
       <Modal
         isOpen={modalIsOpen}
+        closeTimeoutMS={200}
         ariaHideApp={false}
         onRequestClose={closeModal}
         contentLabel='Example Modal'

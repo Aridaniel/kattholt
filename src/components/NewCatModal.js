@@ -67,6 +67,7 @@ function NewCatModal() {
       <Modal
         isOpen={modalIsOpen}
         ariaHideApp={false}
+        closeTimeoutMS={200}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
       >
