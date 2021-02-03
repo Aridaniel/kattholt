@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
+// We used react modals for the form components
 import Modal from 'react-modal';
+// We used react icons
 import { GrFormClose } from 'react-icons/gr';
-
+// This is for the loading gif to display right before the API data arrives
 import Loading from '../img/loading.gif';
 
-// cat photo
-const url =
+// dummy cat photo for the project
+const photoUrl =
   'https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg';
 
 function CatProfileModal() {
+  // state for each item in the DB
   const [content, setContent] = useState([]);
+  // state for each individual item in the DB
   const [modalContent, setModalContent] = useState({});
+  // state for the loading screen that appears while fetching the API
   const [loading, setLoading] = useState(true);
+  // state of modal whether it's open or not
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // Fetching data
     const fetchData = async () => {
+      // Loading GIF state
       setLoading(true);
+      // Try & catch error handling
       try {
         const response = await fetch('http://localhost:4000/api');
         const data = await response.json();
@@ -30,17 +39,18 @@ function CatProfileModal() {
     fetchData();
   }, []);
 
+  // Setting the state for both whether the modal is open or not and individual items from the DB
   function openModal(catInfo) {
     setIsOpen(true);
     setModalContent(catInfo);
   }
 
+  // for the exit modal button from react icons"x"
   function closeModal() {
     setIsOpen(false);
   }
 
   // DELETE cat from DB
-
   const apiUrl = 'http://localhost:4000/kittyprofile/';
 
   // deleting cat from project
@@ -59,7 +69,6 @@ function CatProfileModal() {
   };
 
   // UPDATE cat info
-
   const changeCat = (e) => {
     setModalContent({
       ...modalContent,
@@ -67,6 +76,7 @@ function CatProfileModal() {
     });
   };
 
+  // Update cat button
   const updateCat = async (id) => {
     await fetch(apiUrl + id, {
       method: 'PUT',
@@ -76,12 +86,12 @@ function CatProfileModal() {
       },
     }).then(() => {
       setIsOpen(false);
+      // each time cat is updateed the modal closes and page refreshes.
       window.location.reload();
     });
   };
 
-  // loading screen before the API loads fully
-
+  // loading screen before the API loads fully. If still loading the data, display GIF if ready display the API data.
   if (loading) {
     return (
       <div
@@ -107,7 +117,7 @@ function CatProfileModal() {
             onClick={() => openModal(i)}
           >
             <div className='catprofilebox'>
-              <img className='catProfilePic' src={url} alt='' />
+              <img className='catProfilePic' src={photoUrl} alt='' />
               <div className='cat-info'>
                 <div className='name'>
                   <h1>{i.heitiKattar}</h1>
@@ -143,7 +153,11 @@ function CatProfileModal() {
         </button>
 
         <div key={content._id}>
-          <img style={{ height: '200px', width: '200px' }} src={url} alt='' />
+          <img
+            style={{ height: '200px', width: '200px' }}
+            src={photoUrl}
+            alt=''
+          />
           <div className='cat-info'>
             <div className='newcatfields'>
               <label> Heiti Kattar: </label>

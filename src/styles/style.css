@@ -13,10 +13,13 @@
 
 *::-webkit-scrollbar-track {
   background: #c9c9c9;
+  border-radius: 11px;
+  margin: 5px 0;
 }
 
 *::-webkit-scrollbar-thumb {
   background: indianred;
+  border-radius: 11px;
 }
 
 /* Global Styling! */
