@@ -51,7 +51,7 @@ router.get('/api', async (req, res) => {
 
 
 
-// Update CAt
+// Update Cat
 
 
 router.put('/kittyprofile/:idKottur', (req, res) => {
