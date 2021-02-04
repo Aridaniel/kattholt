@@ -135,6 +135,7 @@ label {
   margin: 20px auto;
   justify-content: center;
   border-radius: 11px;
+  flex-direction: column-reverse;
 }
 
 .cat-container:hover {
@@ -193,28 +194,31 @@ label, input {
 
 
 
-/* CAt SEArch */
-
-.catFindinfo{
-  
-}
+/* Cat Search */
 
 
-.catKassi{
-
-}
 
 .searchCatImg{
   height: 10rem;
   width: 10rem;
-  /* grid-area: 'catImg'; */
 }
-.catinFind{
-  
+.searchCatModal{
+  display: flex;
+  flex-direction: row-reverse;
+ 
 }
 
-.catSearchModal{
-  display:flex;
-  width: 100%;
-  
+.catinFind{
+  width: 50%;
 }
+.catKassi{
+  width: 50%;
+}
+.catcloseFind {
+ display: flex;
+ width: 100%;
+}
+.catcloseFind button{
+ justify-self: flex-end;
+}
+

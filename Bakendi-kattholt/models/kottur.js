@@ -13,7 +13,7 @@ const kottur = new mongoose.Schema({
     type: Number
   },
   ormerking: {
-    type: Number
+    type: String
   },
   litur: {
     type: String
@@ -22,13 +22,13 @@ const kottur = new mongoose.Schema({
     type: String
   },
   ktEigandi: {
-    type: Number
+    type: String
   },
   heimilisfangEigandi: {
     type: String
   },
   simiEigandi: {
-    type: Number
+    type: String
   },
   athugasemdir: {
     type: String

@@ -24,7 +24,7 @@ router.get('/findcat/:name', async (req, res) => {
 
 
 
-//Delete
+//DELETE Cat
 
 router.delete('/kittyprofile/:idKottur', (req, res) => {
   
@@ -36,10 +36,21 @@ router.delete('/kittyprofile/:idKottur', (req, res) => {
   res.send(`Cat with the ormerking ${idKottur} was deleted from the database`);
 });
 
-// Add a new cat to the DB
+
+
+
+
+
+// POST a new cat to the DB
 router.post('/kittyprofile', (request, response) => {
   kisi.create(request.body);
+  console.log(request.body)
 });
+
+
+
+
+
 
 // Get data Cats from DB and display on the client side
 router.get('/api', async (req, res) => {
@@ -50,16 +61,10 @@ router.get('/api', async (req, res) => {
   });
 });
 
-// <<<<<<< HEAD
 
 
+// Update Cat info in the DB
 
-// Update Cat
-
-
-// =======
-// // Update Cat info in the DB
-// >>>>>>> 6e3d0a26b1e7a8f54b4a20a5a5c27de32a746e35
 router.put('/kittyprofile/:idKottur', (req, res) => {
   const { idKottur } = req.params;
   kisi.updateOne({ _id: idKottur }, req.body).then(() => {
