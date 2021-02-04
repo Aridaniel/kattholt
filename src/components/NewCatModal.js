@@ -36,15 +36,18 @@ function NewCatModal() {
     fetchData();
   }, []);
 
+
   // API url used in the function below
   const apiUrl = 'http://161.35.32.243:4000/kittyprofile';
+
+
 
   // Post cat for adding a new cat to the DB
   const postCat = async () => {
     // Try & catch error handling
     try {
       // each time cat is posted the modal closes and page refreshes.
-      window.location.reload();
+       window.location.reload();
       await fetch(apiUrl, {
         method: 'POST',
         body: JSON.stringify(submit),
@@ -102,30 +105,46 @@ function NewCatModal() {
                 Bættu kisunni við með því að fylla inn í skjalið hér að neðan.
               </p>
               <label> Heiti Kattar: </label>
-              <input name='heitiKattar' onChange={handleChanger} type='text' />
+              <input name='heitiKattar' onChange={handleChanger} type='text'  />
+
               <label>Kyn: </label>
-              <input name='Kyn' onChange={handleChanger} type='text' />
-              <label>Aldur: </label>
-              <input onChange={handleChanger} type='text' />
+              <input name='kyn' onChange={handleChanger} type='text' />
+
+              <label> Aldur: </label>
+              <input name='aldur' onChange={handleChanger} type='text' />
+
               <label>Örmerking: </label>
-              <input name='Örmerking' onChange={handleChanger} type='text' />
+              <input name='ormerking' onChange={handleChanger} type='text' />
+
               <label>Litur: </label>
-              <input name='Litur' onChange={handleChanger} type='text' />
+              <input name='litur' onChange={handleChanger} type='text' />
               <label>Heiti Eiganda:</label>
               <input
-                name='Heiti Eiganda'
+                name='heitiEigandi'
                 onChange={handleChanger}
                 type='text'
               />
               <label>Kennitala Eiganda:</label>
               <input
-                name='Kennitala Eiganda'
+                name='ktEigandi'
                 onChange={handleChanger}
                 type='text'
               />
               <label>Heimilisfang Eiganda:</label>
               <input
-                name='Heimilisfang Eiganda'
+                name='heimilisfangEigandi'
+                onChange={handleChanger}
+                type='text'
+              />
+              <label>Sími Eiganda:</label>
+              <input
+                name='simiEigandi'
+                onChange={handleChanger}
+                type='text'
+              />
+              <label>Athugasemdir:</label>
+              <input
+                name='athugasemdir'
                 onChange={handleChanger}
                 type='text'
               />

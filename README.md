@@ -1,5 +1,5 @@
 # Loppa
-### A cat shelter database system for Kattholt.
+### A lost cat shelter database system for Kattholt.
 
 ![Rocking kitty](./src/img/loading.gif)
 

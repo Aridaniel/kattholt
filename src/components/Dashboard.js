@@ -1,11 +1,22 @@
-import React from 'react';
-import Modal from './CatProfileModal';
+import React, {useState} from 'react';
+import CatProfileModal from './CatProfileModal';
 import Logo from '../img/logo_horizontal.svg';
 import { Link } from 'react-router-dom';
 import NewCatModal from '../components/NewCatModal'
 import  Search  from "../components/Search";
 
+
 function Dashboard() {
+
+  const [modalContent, setModalContent] = useState({});
+  const [modalIsOpen,  setIsOpen] = useState(false);
+
+
+
+
+
+
+
   return (
     <>
       <Link to='/'>
@@ -13,19 +24,13 @@ function Dashboard() {
       </Link>
       <div className='header'>
        <NewCatModal/>
-        <button className='btn'>Search</button>
-        <Search/>
+       
+       <Search setUpdateCatModalContent={setModalContent} setUpdateCatIsOpen={setIsOpen}  />
+        
       </div>
 
-      {/* <div className='tabs'>
-        <div className='btn_athvarf'>
-          <button onclick=''className='btn'>Athvarf</button>
-        </div>
-        <div className='btn_hotel'>
-          <button className='btn'>Hotel</button>
-        </div>
-      </div> */}
-      <Modal />
+    
+      <CatProfileModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} modalContent= {modalContent} setModalContent={setModalContent}/>
     </>
   );
 }

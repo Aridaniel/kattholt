@@ -10,15 +10,13 @@ import Loading from '../img/loading.gif';
 const photoUrl =
   'https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg';
 
-function CatProfileModal() {
+function CatProfileModal({modalIsOpen, modalContent, setIsOpen, setModalContent}) {
   // state for each item in the DB
   const [content, setContent] = useState([]);
-  // state for each individual item in the DB
-  const [modalContent, setModalContent] = useState({});
+  // state for each individual item in the D
   // state for the loading screen that appears while fetching the API
   const [loading, setLoading] = useState(true);
-  // state of modal whether it's open or not
-  const [modalIsOpen, setIsOpen] = useState(false);
+  
 
   useEffect(() => {
     // Fetching data
@@ -109,7 +107,7 @@ function CatProfileModal() {
   return (
     <>
       {/* This is the button that opens the modal/ cat profile  */}
-      {content.map((i) => {
+      {content.slice(0).reverse().map((i) => {
         return (
           <button
             key={i._id}
@@ -218,7 +216,7 @@ function CatProfileModal() {
               <input
                 name='athugasemdir'
                 onChange={changeCat}
-                placeholder={modalContent.athugamsemdir}
+                placeholder={modalContent.athugasemdir}
               />
             </div>
           </div>
