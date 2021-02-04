@@ -2,17 +2,31 @@ const express = require('express');
 const router = express.Router();
 const kisi = require('../models/kottur');
 const mongoose = require('mongoose');
-// const ObjectId = require('mongoose').Types.ObjectId;
 
 
 
 
 
 
+
+// Get data Cats from Database
+
+router.get('/findcat/:name', async (req, res) => {
+
+  // Turns the MongoDB data in to an array
+  const data = await kisi.find({heitiKattar:{ $regex : new RegExp(req.params.name, "i") }}, (err, kisur) => {
+    // sends out JSON data to the /api
+    res.send(JSON.stringify(kisur));
+  });
+});
+
+
+
+
+//Delete
 
 router.delete('/kittyprofile/:idKottur', (req, res) => {
   
-  // const deletekisi = new kisi();
   
   const { idKottur } = req.params;
   console.log(JSON.stringify(idKottur));
@@ -38,7 +52,7 @@ router.post('/kittyprofile', (request, response) => {
 
 
 
-// Get data Cats from DAtabase
+// Get data Cats from Database
 
 router.get('/api', async (req, res) => {
   // Turns the MongoDB data in to an array
@@ -51,8 +65,11 @@ router.get('/api', async (req, res) => {
 
 
 
-// Update CAt
 
+
+
+
+// Update CAt
 
 router.put('/kittyprofile/:idKottur', (req, res) => {
 

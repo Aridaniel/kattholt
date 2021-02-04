@@ -132,3 +132,30 @@ label{
   justify-content: flex-start;
 }
 
+
+
+/* CAt SEArch */
+
+.catFindinfo{
+  
+}
+
+
+.catKassi{
+
+}
+
+.searchCatImg{
+  height: 10rem;
+  width: 10rem;
+  /* grid-area: 'catImg'; */
+}
+.catinFind{
+  
+}
+
+.catSearchModal{
+  display:flex;
+  width: 100%;
+  
+}
