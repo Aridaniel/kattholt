@@ -20,12 +20,11 @@ function Search({setUpdateCatIsOpen, setUpdateCatModalContent}) {
     const fetchData = async () => {
      
       try {
-        const response = await fetch('http://localhost:4000/api');
+        const response = await fetch('http://161.35.32.243:4000/api');
         const data = await response.json();
         setContent(data);
        
       } catch (error) {
-       
         console.log(error);
       }
     };
