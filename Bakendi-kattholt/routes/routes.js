@@ -26,16 +26,7 @@ router.get('/api', async (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-
-
-
-// Update Cat
-
-
-=======
 // Update Cat info in the DB
->>>>>>> 6e3d0a26b1e7a8f54b4a20a5a5c27de32a746e35
 router.put('/kittyprofile/:idKottur', (req, res) => {
   const { idKottur } = req.params;
   kisi.updateOne({ _id: idKottur }, req.body).then(() => {
