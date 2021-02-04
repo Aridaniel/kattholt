@@ -27,7 +27,7 @@ function CatProfileModal() {
       setLoading(true);
       // Try & catch error handling
       try {
-        const response = await fetch('http://161.35.32.243:4000/api');
+        const response = await fetch('http://localhost:4000/api');
         const data = await response.json();
         setContent(data);
         setLoading(false);
@@ -51,7 +51,7 @@ function CatProfileModal() {
   }
 
   // DELETE cat from DB
-  const apiUrl = 'http://161.35.32.243:4000/kittyprofile/';
+  const apiUrl = 'http://localhost:4000/kittyprofile/';
 
   // deleting cat from project
   const deleteCat = async (id) => {

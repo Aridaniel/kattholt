@@ -26,7 +26,7 @@ function NewCatModal() {
     const fetchData = async () => {
       // Try & catch error handling
       try {
-        const response = await fetch('http://161.35.32.243:4000/api');
+        const response = await fetch('http://localhost:4000/api');
         const data = await response.json();
         setContent(data);
       } catch (error) {
@@ -37,7 +37,7 @@ function NewCatModal() {
   }, []);
 
   // API url used in the function below
-  const apiUrl = 'http://161.35.32.243:4000/kittyprofile';
+  const apiUrl = 'http://localhost:4000/kittyprofile';
 
   // Post cat for adding a new cat to the DB
   const postCat = async () => {

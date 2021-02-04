@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  changing the scrollbar display */
+*::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #c9c9c9;
+  border-radius: 11px;
+  margin: 5px 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: indianred;
+  border-radius: 11px;
+}
+
+/* Global Styling! */
+body {
+  background: rgb(236, 236, 236);
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* transition effect for modals */
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+img {
+  margin: 20px;
+  object-fit: cover;
+  border-radius: 11px;
+}
+
+/* button styles */
+
+/* removes default styling */
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+button:hover {
+  cursor: pointer;
+}
+.btn {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: black;
+  background-color: rgb(45, 172, 177);
+  width: 100px;
+  border-radius: 11px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+btn:hover {
+  background-color: rgb(153, 220, 223);
+  cursor: pointer;
+}
+
+/* Log In styling */
+.login-container {
+  max-width: 400px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.log-in-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 40px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: rgb(83, 75, 57);
+}
+
+label {
+  font-size: 24px;
+}
+
+/* Dashboard Styling */
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+/* Cat modal button */
+.cat-container {
+  border: 2px solid rgb(105, 105, 105);
+  display: flex;
+  background: rgb(212, 211, 211);
+  width: 50%;
+  margin: 20px auto;
+  justify-content: center;
+  border-radius: 11px;
+}
+
+.cat-container:hover {
+  background:rgb(45, 172, 177);
+}
+
+.catprofilebox {
+  display: flex;
+  flex-direction: row;
+}
+
+/* smaller screens */
+@media (max-width: 768px) {
+  .catprofilebox {
+    flex-direction: column;
+  }
+}
+
+.cat-container .cat-info {
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.cat-container img {
+  margin-top: 7rem;
+  height: 12rem;
+  width: 12rem;
+}
+
+.catProfilePic {
+  border: 2px solid rgb(105, 105, 105);
+}
+
+/* NEW CAT */
+
+.newcatfields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+label, input {
+  margin-top: 1rem;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.closeNewCatBtn {
+  size: 10px;
+  justify-content: flex-start;
+}
