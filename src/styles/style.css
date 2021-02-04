@@ -6,11 +6,42 @@
   box-sizing: border-box;
 }
 
+/*  changing the scrollbar display */
+*::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #c9c9c9;
+  border-radius: 11px;
+  margin: 5px 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: indianred;
+  border-radius: 11px;
+}
+
 /* Global Styling! */
 body {
   background: rgb(236, 236, 236);
   color: #333;
   font-family: 'Quicksand', sans-serif;
+}
+
+/* transition effect for modals */
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
 }
 
 img {
@@ -42,7 +73,7 @@ button:hover {
   color: black;
   background-color: rgb(45, 172, 177);
   width: 100px;
-  border-radius: 50px;
+  border-radius: 11px;
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -74,6 +105,14 @@ h1 {
   margin-bottom: 15px;
 }
 
+h3 {
+  color: rgb(83, 75, 57);
+}
+
+label {
+  font-size: 24px;
+}
+
 /* Dashboard Styling */
 .header {
   display: flex;
@@ -89,8 +128,9 @@ h1 {
 
 /* Cat modal button */
 .cat-container {
+  border: 2px solid rgb(105, 105, 105);
   display: flex;
-  background: rgb(162, 161, 161);
+  background: rgb(212, 211, 211);
   width: 50%;
   margin: 20px auto;
   justify-content: center;
@@ -98,13 +138,26 @@ h1 {
 }
 
 .cat-container:hover {
-   background: indianred;
+  background:rgb(45, 172, 177);
 }
 
+.catprofilebox {
+  display: flex;
+  flex-direction: row;
+}
+
+/* smaller screens */
+@media (max-width: 768px) {
+  .catprofilebox {
+    flex-direction: column;
+  }
+}
 
 .cat-container .cat-info {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
 }
 
 .cat-container img {
@@ -113,6 +166,9 @@ h1 {
   width: 12rem;
 }
 
+.catProfilePic {
+  border: 2px solid rgb(105, 105, 105);
+}
 
 /* NEW CAT */
 
@@ -123,11 +179,14 @@ h1 {
   max-width: 300px;
 }
 
-label{
+label, input {
   margin-top: 1rem;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 20px;
 }
 
-.closeNewCatBtn{
+.closeNewCatBtn {
   size: 10px;
   justify-content: flex-start;
 }

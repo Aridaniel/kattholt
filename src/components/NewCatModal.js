@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from 'react';
+// We used react modals for the form components
 import Modal from 'react-modal';
+// We used react icons
 import { GrClose } from 'react-icons/gr';
 
 //States
 function NewCatModal() {
+  // state for each item in the DB
   const [content, setContent] = useState([]);
+  // state for each individual item in the DB
   const [submit, setSubmit] = useState({});
+  // state of modal whether it's open or not
   const [modalIsOpen, setIsOpen] = useState(false);
 
   // OPEN & CLOSE modal
   function openModal(catInfo) {
     setIsOpen(true);
   }
-
+  // for the exit modal button from react icons"x"
   function closeModal() {
     setIsOpen(false);
   }
 
   useEffect(() => {
     const fetchData = async () => {
+      // Try & catch error handling
       try {
         const response = await fetch('http://localhost:4000/api');
         const data = await response.json();
@@ -35,7 +41,9 @@ function NewCatModal() {
 
   // Post cat for adding a new cat to the DB
   const postCat = async () => {
+    // Try & catch error handling
     try {
+      // each time cat is posted the modal closes and page refreshes.
       window.location.reload();
       await fetch(apiUrl, {
         method: 'POST',
@@ -49,6 +57,7 @@ function NewCatModal() {
     }
   };
 
+  // For submitting the POST request
   const handleChanger = (e) => {
     setSubmit({
       ...submit,
@@ -67,8 +76,18 @@ function NewCatModal() {
       <Modal
         isOpen={modalIsOpen}
         ariaHideApp={false}
+        closeTimeoutMS={200}
         onRequestClose={closeModal}
         contentLabel='Example Modal'
+        style={{
+          content: {
+            maxWidth: '700px',
+            margin: '0 auto',
+            border: '2px solid rgb(105, 105, 105)',
+            background: 'rgb(212, 211, 211)',
+            borderRadius: '11px',
+          },
+        }}
       >
         {/* Close modal button */}
         <button onClick={closeModal}>

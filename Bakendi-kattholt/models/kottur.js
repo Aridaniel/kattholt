@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+// The Schema for each item in the API
+
 const kottur = new mongoose.Schema({
   heitiKattar: {
     type: String
