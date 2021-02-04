@@ -138,7 +138,7 @@ label {
 }
 
 .cat-container:hover {
-  background: indianred;
+  background:rgb(45, 172, 177);
 }
 
 .catprofilebox {
@@ -189,4 +189,32 @@ label, input {
 .closeNewCatBtn {
   size: 10px;
   justify-content: flex-start;
+}
+
+
+
+/* CAt SEArch */
+
+.catFindinfo{
+  
+}
+
+
+.catKassi{
+
+}
+
+.searchCatImg{
+  height: 10rem;
+  width: 10rem;
+  /* grid-area: 'catImg'; */
+}
+.catinFind{
+  
+}
+
+.catSearchModal{
+  display:flex;
+  width: 100%;
+  
 }

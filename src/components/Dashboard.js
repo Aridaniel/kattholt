@@ -13,8 +13,9 @@ function Dashboard() {
       </Link>
       <div className='header'>
        <NewCatModal/>
-        <button className='btn'>Search</button>
+       
         <Search/>
+        
       </div>
 
       {/* <div className='tabs'>

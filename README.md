@@ -1,5 +1,7 @@
 # Loppa
-### A cat shelter database system for Kattholt.
+### A lost cat shelter database system for Kattholt.
+
+![Rocking kitty](./src/img/loading.gif)
 
 Loppa is a database made for Kattholt which is a shelter for lost cats in Reykjavík, Iceland. With this tool they are able to document and keep data about all the cats that come to their shelter. It is a lightweight system made for ease of access and simplicity for the user.
 
